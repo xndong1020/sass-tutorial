@@ -1,34 +1,6 @@
-// variables
-$deepBlue: #032f3e;
-$offWhite: #f8f9fb;
-$sectionHeading: 24px;
-$bannerHeading: 46px;
-
-/***** Mixins ****/
-@mixin banner {
-  width: 100%;
-  position: relative;
-  color: white;
-
-  .banner-content {
-    position: absolute;
-    top: 50px;
-    width: 100%;
-  }
-  img {
-    width: 100%;
-  }
-  span {
-    font-size: $bannerHeading;
-    display: block;
-    text-transform: uppercase;
-    font-weight: bold;
-    .title {
-      font-weight: normal;
-      margin-bottom: 30px;
-    }
-  }
-}
+@import './reset';
+@import './variables';
+@import './mixins';
 
 #main-nav {
   background-color: $deepBlue;
@@ -45,6 +17,10 @@ $bannerHeading: 46px;
       padding: 16px;
       display: block;
       text-align: center;
+
+      &:hover {
+        background-color: orange;
+      }
     }
   }
 }
@@ -71,4 +47,49 @@ section {
     max-width: 500px;
     margin: 60px 0;
   }
+}
+
+#services {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  li {
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    width: (100% /3);
+  }
+  img {
+    width: 60%;
+    margin: 20px 20%;
+  }
+  a {
+    text-decoration: none;
+    color: $deepBlue;
+    font-weight: bold;
+    &:hover {
+      color: red;
+    }
+  }
+  ul {
+    @include clearfix;
+  }
+}
+
+#projects{
+  li{
+    @include grid(6, 2%);
+    img{
+      width: 100%;
+    }
+  }
+  ul{
+    @include clearfix;
+  }
+}
+
+footer{
+  background-color: $deepBlue;
+  color:white;
+  text-align: center;
+  padding: 20px;
 }

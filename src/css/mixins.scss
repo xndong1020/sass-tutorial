@@ -1,0 +1,45 @@
+/***** Mixins ****/
+@mixin banner {
+  width: 100%;
+  position: relative;
+  color: white;
+
+  .banner-content {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
+  span {
+    font-size: $bannerHeading;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    .title {
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin grid($cols, $marginRight) {
+  float: left;
+  margin-right: $marginRight;
+  margin-bottom: $marginRight;
+  width: ((100%-((($cols)-1)*$marginRight))/$cols);
+
+  // last child of each row set margin-right to 0;
+  &:nth-child(#{$cols}n) {
+    margin-right: 0;
+  }
+}
