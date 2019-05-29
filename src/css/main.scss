@@ -10,6 +10,9 @@
     width: 80%;
     display: flex;
     justify-content: space-between;
+    @include mQ(600px) {
+      display: block;
+    }
 
     a {
       color: $offWhite;
@@ -19,7 +22,7 @@
       text-align: center;
 
       &:hover {
-        background-color: orange;
+        background-color: lighten($deepBlue, 10);
       }
     }
   }
@@ -38,7 +41,7 @@ section {
 }
 
 .lead-banner {
-  text-align: right;
+  text-align: right; 
 }
 .lessons-banner {
   li {
@@ -75,21 +78,21 @@ section {
   }
 }
 
-#projects{
-  li{
+#projects {
+  li {
     @include grid(6, 2%);
-    img{
+    img {
       width: 100%;
     }
   }
-  ul{
+  ul {
     @include clearfix;
   }
 }
 
-footer{
+footer {
   background-color: $deepBlue;
-  color:white;
+  color: white;
   text-align: center;
   padding: 20px;
 }

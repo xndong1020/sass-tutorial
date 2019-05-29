@@ -14,6 +14,12 @@
   }
   span {
     font-size: $bannerHeading;
+    @include mQ(860px, 600px) {
+      font-size: 16px;
+    };
+    @include mQ(600px, 320px) {
+      font-size: 12px;
+    };
     display: block;
     text-transform: uppercase;
     font-weight: bold;
@@ -36,10 +42,24 @@
   float: left;
   margin-right: $marginRight;
   margin-bottom: $marginRight;
-  width: ((100%-((($cols)-1)*$marginRight))/$cols);
+  width: ((100%- ((($cols)-1) * $marginRight)) / $cols);
 
   // last child of each row set margin-right to 0;
   &:nth-child(#{$cols}n) {
     margin-right: 0;
+  }
+}
+
+@mixin mQ($args...) {
+  @if (length($args)) == 1 {
+    @media screen and (max-width: nth($args, 1)) {
+      @content;
+    }
+  }
+
+  @if (length($args)) == 2 {
+    @media screen and (max-width: nth($args, 1)) and (min-width: nth($args, 2)) {
+      @content;
+    }
   }
 }
