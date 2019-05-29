@@ -1,0 +1,74 @@
+// variables
+$deepBlue: #032f3e;
+$offWhite: #f8f9fb;
+$sectionHeading: 24px;
+$bannerHeading: 46px;
+
+/***** Mixins ****/
+@mixin banner {
+  width: 100%;
+  position: relative;
+  color: white;
+
+  .banner-content {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
+  span {
+    font-size: $bannerHeading;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    .title {
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+#main-nav {
+  background-color: $deepBlue;
+
+  ul {
+    margin-left: 12%;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: $offWhite;
+      text-decoration: none;
+      padding: 16px;
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+section {
+  h1 {
+    font-size: $sectionHeading;
+    color: $deepBlue;
+  }
+}
+
+.lead-banner,
+.lessons-banner {
+  @include banner;
+}
+
+.lead-banner {
+  text-align: right;
+}
+.lessons-banner {
+  li {
+    text-transform: uppercase;
+    font-size: 20px;
+    max-width: 500px;
+    margin: 60px 0;
+  }
+}
